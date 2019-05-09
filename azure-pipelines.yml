@@ -2,7 +2,7 @@ pool:
   vmImage: 'Ubuntu 16.04'
 
 variables:
-  imageName: 'captureorder:$(Build.BuildId)'
+  imageName: 'azure-vote:$(Build.BuildId)'
 
 steps:
 - script: docker build -f azure-vote/Dockerfile -t $(acrName).azurecr.io/$(imageName) .
