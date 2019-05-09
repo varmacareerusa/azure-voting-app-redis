@@ -14,25 +14,15 @@ steps:
 - script: docker push $(acrName).azurecr.io/$(imageName)
   displayName: 'docker push'
   
-jobs:
-- deployment: DeployJob
-  displayName: Deploy job
-  pool:
-    vmImage: 
-  environment: kubernetes-aks-dns-84a39dc0.hcp.westus.azmk8s.io
-  strategy:
-    runOnce:
-      deploy:
-        steps:
-        - task: KubernetesManifest@0
-          displayName: Deploy to Kubernetes cluster
-          inputs:
-            action: deploy
-            namespace: staging
-            manifests: |
-              azure-vote-all-in-one-redis.yaml
-            imagePullSecrets: |
-              acr-auth
-            containers: |
-              infostretchtestdocker.azurecr.io/azure-vote
+- task: KubernetesManifest@0
+  displayName: Deploy to Kubernetes cluster
+  inputs:
+    action: deploy
+    namespace: staging
+    manifests: |
+      azure-vote-all-in-one-redis.yaml
+    imagePullSecrets: |
+      acr-auth
+    containers: |
+      infostretchtestdocker.azurecr.io/azure-vote
 
