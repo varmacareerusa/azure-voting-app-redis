@@ -3,7 +3,7 @@ pool:
 
 variables:
   imageName: 'azure-vote-front:$(Build.BuildId)'
-  azureSubscriptionEndpoint: infostretchdevops-acr
+  azureSubscriptionEndpoint: kubernetes-aks
   azureContainerRegistry: infostretchtestdocker.azurecr.io
   azureResourceGroup: kubernetes-aks
   kubernetesCluster: kubernetes-aks
