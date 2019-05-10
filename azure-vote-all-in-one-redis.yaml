@@ -10,7 +10,7 @@ spec:
         app: azure-vote-back
     spec:
       nodeSelector:
-        "beta.kubernetes.io/os": linux
+        "kubernetes-aks-dns-84a39dc0.hcp.westus.azmk8s.io/os": linux
       containers:
       - name: azure-vote-back
         image: redis
@@ -45,7 +45,7 @@ spec:
         app: azure-vote-front
     spec:
       nodeSelector:
-        "beta.kubernetes.io/os": linux
+        "kubernetes-aks-dns-84a39dc0.hcp.westus.azmk8s.io/os": linux
       containers:
       - name: azure-vote-front
         image: infostretchtestdocker.azurecr.io/azure-vote-front:v1
